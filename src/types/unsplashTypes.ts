@@ -1,4 +1,4 @@
-export type imageTypes = {
+export type UnsplashImageTypes = {
   id: string;
   urls: {
     regular: string;
@@ -8,4 +8,9 @@ export type imageTypes = {
   description: string;
   width: number;
   height: number;
+};
+
+export type FetchedImagesType = {
+  results: UnsplashImageTypes[];
+  total_pages: number;
 };

@@ -1,22 +1,35 @@
+import { FetchedImagesType } from "@/types";
 import { useEffect, useRef, useState } from "react";
 
-export const useInfiteScroll = <T, K extends Element>(
-  service: (page: number) => Promise<T[]>,
-  initialData: T[] = []
+export const useInfiteScroll = (
+  service: (page: number, query: string) => Promise<FetchedImagesType>,
+  query: string | null = null,
+  initialData: FetchedImagesType = { results: [], total_pages: Infinity }
 ) => {
-  const [data, setData] = useState<T[]>(initialData);
+  const [data, setData] = useState(initialData);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const ref = useRef<K | null>(null);
+  const ref = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
+    if (data.total_pages < page || query === "") return;
     setIsLoading(true);
     (async () => {
-      const res = await service(page);
-      setData((prev) => [...prev, ...res]);
+      const res = await service(page, query || "");
+
+      res &&
+        setData((prev) => ({
+          results: [...prev.results, ...res.results],
+          total_pages: res.total_pages,
+        }));
       setIsLoading(false);
     })();
-  }, [page, service]);
+  }, [page, query]);
+
+  useEffect(() => {
+    setData(initialData);
+    setPage(1);
+  }, [query]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
