@@ -31,9 +31,6 @@ export const useHome = () => {
     };
   }, [query]);
 
-  console.log(searchImages, "searchImages");
-  console.log(popularImages, "popularImages");
-
   return {
     query,
     onQueryChange,
