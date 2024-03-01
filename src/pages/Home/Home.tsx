@@ -1,5 +1,5 @@
 import { Magnifier } from "@/Icons";
-import { Gallery } from "@/components";
+import { Gallery, Header } from "@/components";
 import { useHome } from "./useHome";
 
 export const Home = () => {
@@ -16,7 +16,8 @@ export const Home = () => {
 
   return (
     <div className="bg-slate-50 min-h-screen">
-      <div className="px-10 py-20">
+      <Header text="History" to="/history" />
+      <div className="px-6 mb-20">
         <div className="relative">
           <div className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2">
             <Magnifier />
@@ -37,14 +38,13 @@ export const Home = () => {
                 isLoading={isSearchImagesLoading}
                 ref={searchRef}
               />
-            ) : isSearchImagesLoading ? (
-              <div className="text-center text-2xl text-gray-700">
-                Loading...
-              </div>
             ) : (
-              <div className="text-center text-2xl text-gray-700">
-                No images found
-              </div>
+              !isSearchImagesLoading &&
+              searchImages.length === 0 && (
+                <div className="text-center text-2xl text-gray-700">
+                  No images found
+                </div>
+              )
             )
           ) : (
             <Gallery

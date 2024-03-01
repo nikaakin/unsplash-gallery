@@ -13,10 +13,18 @@ export const useInfiteScroll = (
   const ref = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
+    if (!query) return;
+    setData(getCache(query));
+    setPage(getCache(query)?.page | 1);
+  }, [query]);
+
+  useEffect(() => {
+    const updatedData = getCache(query);
+
     if (
-      data?.total_pages < page ||
+      updatedData?.total_pages < page ||
       query === "" ||
-      (page === data.page && data.results.length > 0)
+      (page === updatedData.page && updatedData.results.length > 0)
     )
       return;
 
@@ -31,17 +39,16 @@ export const useInfiteScroll = (
           page: page,
         }));
 
-      updateCache(query || "", res.results, page, res.total_pages);
+      updateCache(
+        query || "",
+        [...updatedData.results, ...res.results],
+        page,
+        res.total_pages
+      );
 
       setIsLoading(false);
     })();
   }, [page, query]);
-
-  useEffect(() => {
-    if (!query) return;
-    setData(getCache(query));
-    setPage(getCache(query)?.page | 1);
-  }, [query]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
