@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Home, History, NotFound } from "@/pages";
+import "./index.css";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
