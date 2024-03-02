@@ -26,6 +26,11 @@ export const History = () => {
               Select the query to see the images
             </div>
           )}
+          {data.results?.length === 0 && !isLoading && selectedQuery && (
+            <div className="text-center text-2xl text-gray-700">
+              No images found
+            </div>
+          )}
         </div>
       </main>
     </div>
