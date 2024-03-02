@@ -6,7 +6,7 @@ export const useDisplayImage = (id: string) => {
   const [data, setData] = useState<getPhotoType | null>(null);
 
   const description =
-    data?.description.length || 0 > 120
+    data?.description?.length || 0 > 120
       ? data?.description.slice(0, 120).concat("...")
       : data?.description || "No description available";
 
