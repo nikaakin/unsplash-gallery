@@ -5,7 +5,6 @@ import { useState } from "react";
 
 export const History = () => {
   const [selectedQuery, setSelectedQuery] = useState<string>("");
-
   const { data, isLoading, ref } = useInfiteScroll(searchPhotos, selectedQuery);
 
   return (

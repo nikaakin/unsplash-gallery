@@ -1,4 +1,4 @@
-import { Magnifier } from "@/Icons";
+import { MagnifierIcon } from "@/Icons";
 import { Gallery, Header } from "@/components";
 import { useHome } from "./useHome";
 
@@ -20,7 +20,7 @@ export const Home = () => {
       <div className="px-6 mb-20">
         <div className="relative">
           <div className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2">
-            <Magnifier />
+            <MagnifierIcon />
           </div>
           <input
             type="text"

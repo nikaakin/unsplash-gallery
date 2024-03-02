@@ -1,4 +1,4 @@
-import { FetchedImagesType } from "@/types";
+import { FetchedImagesType, getPhotoType } from "@/types";
 
 export const getPopular = (page = 1) =>
   fetch(
@@ -22,7 +22,7 @@ export const getPhoto = (id: string) =>
     }`
   )
     .then((res) => res.json())
-    .then((res) => res)
+    .then<getPhotoType>((res) => res)
     .catch((error) => {
       throw new Error(error);
     });

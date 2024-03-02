@@ -6,6 +6,10 @@ export const HistoryList = ({
 }: {
   onChange: Dispatch<SetStateAction<string>>;
 }) => {
+  const selectQuery = (key: string) => {
+    if (window.innerWidth <= 768) setIsVisible(false);
+    onChange(key);
+  };
   const [isVisible, setIsVisible] = useState(window.innerWidth > 768);
 
   return (
@@ -32,7 +36,7 @@ export const HistoryList = ({
       </button>
 
       <div
-        className={`flex flex-col fixed left-0 top-0 overflow-y-auto h-full md:h-auto md:max-h-full pt-20 pb-5 bg-gray-200 text-stone-800 w-full md:w-auto transition-opacity z-20 ${
+        className={`flex flex-col fixed left-0 top-0 overflow-y-auto h-full md:max-h-full pt-20 pb-5 bg-gray-200 text-stone-800 w-full md:w-auto transition-opacity z-20 ${
           !isVisible && "!-z-10"
         }`}
         style={{ opacity: isVisible ? "1" : "0" }}
@@ -45,11 +49,7 @@ export const HistoryList = ({
             key && (
               <div
                 key={key}
-                onClick={() => {
-                  if (window.innerWidth <= 768) setIsVisible(false);
-
-                  onChange(key);
-                }}
+                onClick={selectQuery.bind(null, key)}
                 className="cursor-pointer hover:bg-gray-100 p-4 border-t border-gray-100  text-xl font-semibold capitalize w-full px-20 text-center"
               >
                 {key}

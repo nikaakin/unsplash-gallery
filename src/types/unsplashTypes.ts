@@ -14,3 +14,13 @@ export type FetchedImagesType = {
   results: UnsplashImageTypes[];
   total_pages: number;
 };
+
+export type getPhotoType = {
+  likes: number;
+  description: string;
+  views: number;
+  downloads: number;
+  urls: {
+    raw: string;
+  };
+};
