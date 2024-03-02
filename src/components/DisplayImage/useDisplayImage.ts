@@ -11,6 +11,7 @@ export const useDisplayImage = (id: string) => {
       : data?.description || "No description available";
 
   useEffect(() => {
+    if (!id) return;
     setData(null);
     (async () => {
       const res = await getPhoto(id);
