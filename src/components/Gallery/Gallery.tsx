@@ -29,8 +29,7 @@ export const Gallery = forwardRef<HTMLImageElement, GalleryProps>(
           >
             <img
               ref={i === images.length - 1 ? ref : null}
-              // src={item.urls.regular}
-              src={"public/vite.svg"}
+              src={item.urls.regular}
               alt={item.alt_description}
               className="object-cover w-full h-full "
             />
