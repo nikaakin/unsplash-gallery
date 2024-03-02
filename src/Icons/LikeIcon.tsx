@@ -1,8 +1,8 @@
 export const LikeIcon = () => (
   <svg
     fill="#000000"
-    height="28px"
-    width="28px"
+    height="24"
+    width="24"
     version="1.1"
     id="Capa_1"
     xmlns="http://www.w3.org/2000/svg"
@@ -10,6 +10,7 @@ export const LikeIcon = () => (
     viewBox="0 0 512 512"
     xmlSpace="preserve"
   >
+    <title>likes</title>
     <g>
       <path
         d="M498.323,297.032c0-7.992-1.901-15.683-5.553-22.635c12.034-9.18,19.23-23.438,19.23-38.914

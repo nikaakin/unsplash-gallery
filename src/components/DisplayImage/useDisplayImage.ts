@@ -5,6 +5,11 @@ import { useEffect, useState } from "react";
 export const useDisplayImage = (id: string) => {
   const [data, setData] = useState<getPhotoType | null>(null);
 
+  const description =
+    data?.description.length || 0 > 120
+      ? data?.description.slice(0, 120).concat("...")
+      : data?.description || "No description available";
+
   useEffect(() => {
     setData(null);
     (async () => {
@@ -13,5 +18,5 @@ export const useDisplayImage = (id: string) => {
     })();
   }, [id]);
 
-  return { data };
+  return { data, description };
 };

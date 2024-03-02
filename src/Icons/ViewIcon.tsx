@@ -1,8 +1,8 @@
 export const ViewIcon = () => (
   <svg
     fill="#000000"
-    height="28px"
-    width="28px"
+    height="24"
+    width="24"
     version="1.1"
     id="Capa_1"
     xmlns="http://www.w3.org/2000/svg"
@@ -10,6 +10,7 @@ export const ViewIcon = () => (
     viewBox="0 0 80.794 80.794"
     xmlSpace="preserve"
   >
+    <title>views</title>
     <g>
       <g>
         <path
