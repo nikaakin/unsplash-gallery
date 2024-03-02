@@ -20,7 +20,7 @@ export const HistoryList = ({
       >
         <span
           className={`bg-stone-700 w-8 h-1 block transition-transform origin-center ${
-            isVisible ? "rotate-0" : "rotate-45 translate-y-[8px] "
+            isVisible ? "rotate-0" : "rotate-45 translate-y-2 "
           }`}
         ></span>
         <span
@@ -30,7 +30,7 @@ export const HistoryList = ({
         ></span>
         <span
           className={`bg-stone-700 w-8 h-1 block transition-transform origin-center ${
-            isVisible ? "rotate-0" : "-rotate-45  -translate-y-[8px]"
+            isVisible ? "rotate-0" : "-rotate-45  -translate-y-2"
           }`}
         ></span>
       </button>

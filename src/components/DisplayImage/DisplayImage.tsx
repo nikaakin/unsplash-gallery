@@ -5,7 +5,7 @@ export const DisplayImage = ({ id }: { id: string }) => {
   const { data } = useDisplayImage(id);
   return (
     <div className="w-full h-full">
-      <div className="w-full md:h-[750px] overflow-hidden my-4">
+      <div className="w-full md:h-187 overflow-hidden my-4">
         <img
           src={data?.urls?.raw}
           alt={data?.description}

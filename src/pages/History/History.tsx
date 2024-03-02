@@ -11,7 +11,7 @@ export const History = () => {
     <div className="bg-slate-50 min-h-screen">
       <Header text="Home" to="/" />
       <main className="flex gap-6">
-        <div className="basis-0 md:basis-[650px]">
+        <div className="basis-0 md:basis-162">
           <HistoryList onChange={setSelectedQuery} />
         </div>
         <div className="z-10 w-full">
